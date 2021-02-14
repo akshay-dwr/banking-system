@@ -1,0 +1,26 @@
+<style>
+    @media screen and (max-width: 750px){
+      .container{
+        width: 100% !important;
+      }
+    }
+</style>
+
+<!-- Zero Amount Error -->
+<div class="container p-5 my-2" style="width: 40%;">
+    <div class="card" style="border: none; margin-bottom: -3rem;">
+        <div class="card-header" style="background-color: #d9534f; font-size: larger; font-weight: 500; color: white;">
+           Zero Amount Error
+        </div>                
+        <div class="card-body">
+            <p>Please enter a non-zero amount</p>
+            <a class="btn btn-success" onclick="goBack()" style="background-color: #5cb85c; color: white;">Go Back</a>
+        </div>       
+    </div>
+</div>
+
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>

@@ -1,0 +1,21 @@
+<!-- All Customers List -->
+<div class="container p-5 my-2">
+    <div class="card" style="border: none;">
+        <div class="card-header" style="background-color: #5cb85c; font-size: larger; font-weight: 500; color: white;">
+            All Customers
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">                       
+                <% for(let i of customers) {%>
+                    <li class="list-group-item" style="text-transform: capitalize; font-weight: 100; font-size: 1.2rem;">
+                        <b><%= i.name %></b>
+                        <a class="btn btn-primary" style="float: right; background-color: #586BA4; border: none;" href="/customers/<%= i._id %>">View</a>
+                    </li>
+                <% } %>     
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-success" style="background-color: #5cb85c;" href="/">Back</a>
+            </div>           
+        </div>      
+    </div>
+</div>    

@@ -1,0 +1,71 @@
+<style>
+    .style-select{
+        border: none;
+        outline: none;
+        margin-top: -0.5rem;
+    }
+    .bold-span{
+        font-weight: 500;
+    }
+    .small-label{
+        font-size: 0.8rem;
+    }
+    input{
+        border: none;
+        outline: none;
+        border-bottom: solid 1px black;
+        width: 5rem;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    @media screen and (max-width: 750px){
+        .container{
+            width: 100% !important;
+        }
+    }
+</style>
+
+<!-- Transfer Money -->
+<div class="container p-5 my-2" style="width: 40%;">
+    <div class="card" style="margin-bottom: 15rem; border: none;">
+        <div class="card-header" style="background-color: #5cb85c; font-size: larger; font-weight: 500; color: white;">
+            Transfer Money
+        </div>
+        <div class="card-body">
+            <form action="/customers" method="POST">
+                <div class="input-group mb-3">
+                    <label>You are <span class="bold-span"><%= sender.name %></span><br><span class="small-label">You have <span class="bold-span">₹<%= sender.balance %></span> in your account</span></label>          
+                    <select class="form-select" name="sender" hidden>                        
+                        <% for(let i of receiver) { %>
+                            <option style="text-transform: capitalize;" value="<%= i.name %>"
+                                <%=i.name===sender.name?'selected':'disabled' %> ><%= i.name %>
+                            </option> 
+                            <% } %>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <label>Paying to:&nbsp</label>
+                    <select class="form-select style-select" name="receiver">
+                        <% for(let i of receiver) { %>
+                            <option style="text-transform: capitalize;" value="<%= i.name %>"
+                                <%=i.name===sender.name?'disabled':'' %> ><%= i.name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <span>Amount ₹</span>
+                    <input type="number" step="1" name="amount" required min="0" autocomplete="off" style="font-size: 1rem;">                                
+                </div>               
+                <a class="btn btn-danger" href="/customers" style="margin-right: 0.5rem;">Cancel</a>
+                <button class="btn btn-success">Transfer</button>
+            </form>
+        </div>
+    </div>
+</div>    

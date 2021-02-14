@@ -1,0 +1,22 @@
+<style>
+  @media screen and (max-width: 750px){
+    .container{
+      width: 100% !important;
+    }
+  }
+</style>
+
+<!-- Customer Profile -->
+<div class="container p-5 my-2" style="width: 40%;">
+  <div class="card" style="border: none; margin-bottom: 16rem;">
+    <div class="card-header" style="background-color: #5cb85c; font-size: larger; font-weight: 500; color: white;">
+        <%= customerProfile.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-text" style="font-weight: 100; font-size: 1rem"><%= customerProfile.email %></h5>
+      <p class="card-text">Account Balance: <b>₹<%= customerProfile.balance %></p>
+      <a class="btn btn-primary" style="background-color: #586BA4; border: none;" href="/customers/<%= customerProfile._id %>/history">History</a>
+      <a class="btn btn-primary" style="background-color: #5cb85c; border: none;" href="/customers/<%= customerProfile._id %>/transfer">Transfer</a>  
+    </div>
+  </div>
+</div>

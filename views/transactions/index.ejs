@@ -1,0 +1,27 @@
+<!-- All Transactions -->
+<div class="container p-5 my-2">
+    <div class="card" style="border: none;">
+        <div class="card-header" style="background-color: #586BA4; font-size: larger; font-weight: 500; color: white;">
+            All Transactions
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <% if(transferStatement.length > 0) { %>
+                    <% for(let i of transferStatement) {%>
+                        <li class="list-group-item" style="text-transform: capitalize;">
+                            <%= i.transferStatement %>
+                        </li>
+                    <% } %>
+                <% } else { %>
+                    <li class="list-group-item" style="text-transform: capitalize;">
+                        No Transactions Made
+                    </li>
+                <% } %>
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-success" style="background-color: #5cb85c;" href="/">Back</a>
+            </div>
+        </div>        
+    </div>
+</div>
+    
